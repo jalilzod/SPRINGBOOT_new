@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: demo
+
+stripe:
+  apiUrl: https://api.stripe.com
+  timeout: 1000
+  enabled: false
+  supported-currencies: USD,TJS,CNY,RUB,EUR
+
+payment-gateway: stripe
