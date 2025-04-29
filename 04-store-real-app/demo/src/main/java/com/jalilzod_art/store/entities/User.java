@@ -1,4 +1,42 @@
 package com.jalilzod_art.store.entities;
 
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Entity
+@Table(name = "users")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
+    private Long id;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "email")
+    private String email;
+    @Column(name="password")
+    private String password;
+
+    @OneToMany(mappedBy = "user")
+    private List<Address>addresses = new ArrayList<>();
+
+
+    public void addAddress(Address address) {
+        addresses.add(address);
+        address.setUser(this);
+    }
 }
+
+
+
+
+
+
