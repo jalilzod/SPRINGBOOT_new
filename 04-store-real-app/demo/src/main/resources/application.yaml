@@ -5,15 +5,3 @@ spring:
     username: root
     password: 4433
     url: jdbc:mysql://localhost:3306/store?createDatabaseIfNotExist=true
-
-stripe:
-  apiUrl: https://api.stripe.com
-  timeout: 1000
-  enabled: false
-  supported-currencies: USD,TJS,CNY,RUB,EUR
-
-payment-gateway: stripe
-
-mail-server:
-  port: 51
-  host: https://jalilzod_art

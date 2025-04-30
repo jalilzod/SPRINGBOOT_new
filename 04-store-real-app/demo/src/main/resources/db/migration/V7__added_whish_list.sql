@@ -1,13 +1,5 @@
-create table categories(
-    id tinyint primary key auto_increment,
-    name varchar(255)
-);
-
-
-create table products(
-    id bigint primary key auto_increment,
-    name varchar(255),
-    price decimal(10,2),
-    category_id tinyint,
-    foreign key (category_id) references categories(id)
+create table wishlist(
+    product_id bigint not null,
+    user_id bigint not null,
+    constraint pk_wishlist primary key (product_id,user_id)
 );
