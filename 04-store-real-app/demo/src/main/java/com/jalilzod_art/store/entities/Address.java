@@ -8,6 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @Setter
 @Entity
+@Builder
 @Table(name="addresses")
 public class Address {
 
@@ -28,10 +29,7 @@ public class Address {
     @Column(name="zip")
     private String zip;
 
-    @Column(name="user_id")
-    private Long userId;
-
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.LAZY)
     @ToString.Exclude
     @JoinColumn(name="user_id")
     private User user;
