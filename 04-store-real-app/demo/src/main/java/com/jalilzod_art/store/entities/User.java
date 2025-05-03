@@ -28,7 +28,7 @@ public class User {
     @Column(name="password")
     private String password;
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "user",cascade = {CascadeType.PERSIST,CascadeType.REMOVE},orphanRemoval = true)
     @Builder.Default
     private List<Address>addresses = new ArrayList<>();
 
@@ -40,7 +40,7 @@ public class User {
     )
     private Set<Tag>tags = new HashSet<>();
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user",cascade = CascadeType.REMOVE)
     private Profile profile;
 
     @ManyToMany
@@ -71,6 +71,10 @@ public class User {
         Tag tag1 = new Tag(tagName);
         tags.remove(tag1);
         tag1.getUsers().remove(this);
+    }
+
+    public void addFavoriteProduct(Product product) {
+        wishProducts.add(product);
     }
 }
 

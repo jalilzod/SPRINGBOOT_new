@@ -1,16 +1,15 @@
 package com.jalilzod_art.store.services;
 
 
-import com.jalilzod_art.store.entities.Address;
-import com.jalilzod_art.store.entities.Profile;
-import com.jalilzod_art.store.entities.User;
-import com.jalilzod_art.store.repositories.AddressRepository;
-import com.jalilzod_art.store.repositories.ProfileRepository;
-import com.jalilzod_art.store.repositories.UserRepository;
+import com.jalilzod_art.store.entities.*;
+import com.jalilzod_art.store.repositories.*;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
+import java.util.List;
 
 @AllArgsConstructor
 @Service
@@ -21,6 +20,8 @@ public class UserService {
     private final EntityManager entityManager;
     private final ProfileRepository profileRepository;
     private final AddressRepository addressRepository;
+    private final ProductRepository productRepository;
+    private final CategoryRepository categoryRepository;
 
     public void showEntityState(){
         Profile profile = profileRepository.findById(1L).orElseThrow();
@@ -53,5 +54,12 @@ public class UserService {
     public void deleteUser(){
         User user = userRepository.findById(1L).orElseThrow();
         userRepository.delete(user);
+    }
+
+    @Transactional
+    public void manageProducts(){
+
+       productRepository.deleteById(4l);
+
     }
 }

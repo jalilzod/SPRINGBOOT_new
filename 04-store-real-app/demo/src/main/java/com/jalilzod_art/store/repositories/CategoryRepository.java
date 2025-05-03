@@ -1,4 +1,7 @@
-package com.jalilzod_art.store.services;
+package com.jalilzod_art.store.repositories;
 
-public interface CategoryRepository extends org.springframework.data.jpa.repository.JpaRepository<com.jalilzod_art.store.entities.Category, java.lang.Byte> {
-  }
+import com.jalilzod_art.store.entities.Category;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CategoryRepository extends JpaRepository<Category, Byte> {
+}

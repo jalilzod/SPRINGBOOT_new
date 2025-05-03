@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="user-reg">
+        <h1>Create User</h1>
+        <form class="frm" method="post" action="/users/register-form">
+            <label class="lbl">Name: <input type="text" name="name" /></label>
+            <label class="lbl">Email: <input type="email" name="email" /></label>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>

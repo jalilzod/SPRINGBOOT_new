@@ -16,7 +16,7 @@ public class StoreApplication {
 		ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
 		UserService userService = context.getBean(UserService.class);
 
-		userService.deleteUser();
+		userService.manageProducts();
 
 
 	}
