@@ -1,4 +1,7 @@
 package com.jalilzod_art.springvuewebapp.entities;
 
-public class Status {
+public enum Status {
+    NEW,
+    IN_PROGRESS,
+    COMPLETED,
 }
